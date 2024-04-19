@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ReportDialog from "./reportdialog";
 import Paginator from "./paginator";
 import { generateDummyReports } from "../../utils/dummydata";
@@ -12,9 +12,9 @@ type Report = {
 };
 
 const ReportsPage = () => {
+    const reports = generateDummyReports();
     const [currentPage, setCurrentPage] = useState(1);
     const [rowNum, setRowNum] = useState(5);
-    const reports = generateDummyReports();
     const [currentReports, setCurrentReports] = useState<Report[]>([]);
     const [totalPages, setTotalPages] = useState(
         Math.ceil(reports.length / rowNum)
@@ -31,8 +31,11 @@ const ReportsPage = () => {
         const indexOfLastReport = currentPage * rowNum;
         const indexOfFirstReport = indexOfLastReport - rowNum;
         setCurrentReports(reports.slice(indexOfFirstReport, indexOfLastReport));
+    }, [rowNum, currentPage]);
+
+    useEffect(() => {
         setTotalPages(Math.ceil(reports.length / rowNum));
-    }, [rowNum, currentPage, reports]);
+    }, [rowNum, reports.length]);
 
     return (
         <div className="">
