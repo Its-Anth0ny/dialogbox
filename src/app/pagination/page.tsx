@@ -39,7 +39,7 @@ const ReportsPage = () => {
 
     return (
         <div className="w-full h-full flex justify-center items-center bg-gray-200">
-            <div className="h-[80%] max-w-full w-full md:max-w-[75%] md:w-auto lg:max-w-[50%] lg:w-auto flex flex-col justify-between rounded-xl bg-white shadow-2xl">
+            <div className="h-[90%] max-w-full w-full md:max-w-[75%] md:w-auto lg:max-w-[50%] lg:w-auto flex flex-col justify-between rounded-xl bg-white shadow-2xl">
                 <ReportDialog reports={currentReports} />
                 <Paginator
                     currentPage={currentPage}
