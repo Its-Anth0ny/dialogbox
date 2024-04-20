@@ -17,6 +17,7 @@ const config: Config = {
       fontFamily: {
         // sans: ['Roboto', 'ui-sans-serif', 'system-ui'],
       },
+      screens: {"w600":"600px", "w470":"470px", "w375":"375px"},
     },
   },
   plugins: [],

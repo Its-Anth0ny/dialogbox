@@ -12,7 +12,13 @@ type Report = {
 };
 
 const ReportsPage = () => {
-    const reports = generateDummyReports();
+    const allreports = generateDummyReports();
+    const reports = allreports.filter((report) => {
+        const thirtyDaysAgo = new Date();
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+        const generatedDate = new Date(report.generatedDate);
+        return generatedDate > thirtyDaysAgo;
+    });
     const [currentPage, setCurrentPage] = useState(1);
     const [rowNum, setRowNum] = useState(5);
     const [currentReports, setCurrentReports] = useState<Report[]>([]);
@@ -39,7 +45,7 @@ const ReportsPage = () => {
 
     return (
         <div className="w-full h-full flex justify-center items-center bg-gray-200">
-            <div className="h-[650px] max-w-[550px] w-full md:max-w-[700px] md:w-auto lg:max-w-[800px] lg:w-auto flex flex-col justify-between rounded-xl bg-white shadow-2xl">
+            <div className="h-[650px] max-w-[600px] w-full max-w600:max-w-[450px] max-w600:w-full md:max-w-[700px] md:w-full lg:max-w-[800px] lg:w-full flex flex-col justify-between rounded-xl bg-white shadow-2xl">
                 <ReportDialog reports={currentReports} />
                 <Paginator
                     currentPage={currentPage}

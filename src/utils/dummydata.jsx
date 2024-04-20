@@ -6,9 +6,8 @@ export const generateDummyReports = () => {
         const generatedDate = new Date(currentDate - i * 24 * 60 * 60 * 1000);
         const report = {
             id: i + 1,
-            name: `Report ${i + 1}`,
-            generatedDate: generatedDate.toISOString().split("T")[0],
-            generatedTime: generatedDate.toISOString().split("T")[1], //(YYYY-MM-DDTHH:mm:ss.sssZ)
+            name: `Reportjasvddddddddddddddddddddddddvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv`,
+            generatedDate: generatedDate,
         };
         reports.push(report);
     }
