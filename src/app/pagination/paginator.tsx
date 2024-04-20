@@ -20,7 +20,7 @@ const Paginator = ({
                     disabled={currentPage === currentPage - 1}
                     className="px-2"
                 >
-                    <div className="flex space-x-1">
+                    <div className="flex space-x-1 hover:text-gray-700">
                         <ChevronFirst className="size-4" />
                         <p>Prev</p>
                     </div>
@@ -64,7 +64,7 @@ const Paginator = ({
                     disabled={currentPage === currentPage + 1}
                     className="px-2"
                 >
-                    <div className="flex space-x-1">
+                    <div className="flex space-x-1 hover:text-gray-700">
                         <p>Next</p>
                         <ChevronLast className="size-4" />
                     </div>
@@ -77,7 +77,7 @@ const Paginator = ({
                         onRowNumChange(e.target.value), onPageChange(1);
                     }}
                     defaultValue={5}
-                    className="border-solid border-gray-200 border-2 rounded-lg px-2 py-1.5 max-w600:py-1 max-w600:px-1.5"
+                    className="border-solid border-gray-200 border-2 rounded-lg px-2 py-1.5 max-w600:py-1 max-w600:px-1.5 hover:text-gray-700"
                 >
                     {[...Array(reports.length < 15 ? reports.length : 15)].map(
                         (_, index) => (
